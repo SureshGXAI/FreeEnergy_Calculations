@@ -114,9 +114,9 @@ def extract_data(inpfile):
 
 
 def binding_free_energy():
-    comp = pd.read_csv('complex-mmgbsa.log', sep='\s+', names=['Time', 'Elect', 'Vdw', 'Total'])
-    rec = pd.read_csv('receptor-mmgbsa.log', sep='\s+', names=['Time', 'Elect', 'Vdw', 'Total'])
-    lig = pd.read_csv('ligand-mmgbsa.log', sep='\s+', names=['Time', 'Elect', 'Vdw', 'Total'])
+    comp = pd.read_csv('complex_only-mmgbsa.log', sep='\s+', names=['Time', 'Elect', 'Vdw', 'Total'])
+    rec = pd.read_csv('receptor_only-mmgbsa.log', sep='\s+', names=['Time', 'Elect', 'Vdw', 'Total'])
+    lig = pd.read_csv('ligand_only-mmgbsa.log', sep='\s+', names=['Time', 'Elect', 'Vdw', 'Total'])
 
     bind['Bind_FE'] = comp['Total'] - rec['Total'] - lig['Total']
     bind['Bind_FE_Elect'] = comp['Elect'] - rec['Elect'] - lig['Elect']
