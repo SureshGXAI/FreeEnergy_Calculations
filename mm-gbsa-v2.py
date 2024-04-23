@@ -87,13 +87,12 @@ while {{ ![coorfile read] }} {{
 coorfile close '''
 
     if not os.path.exists(f'{system}-mmgbsa.conf'):
-        with open('mmgbsa.conf', 'w') as f:
+        with open(f'{system}-mmgbsa.conf', 'w') as f:
             f.write(mmgbsa)
-
-    extract_data(f'{system}-mmgbsa.log')
 
     os.system(f'namd3 +auto-provision {system}-mmgbsa.conf >{system}-mmgbsa.log')
     os.system("rm gb_bnm.*")
+     extract_data(f'{system}-mmgbsa.log')
 
     return 
 
