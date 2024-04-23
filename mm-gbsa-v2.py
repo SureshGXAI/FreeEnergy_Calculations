@@ -129,9 +129,9 @@ def binding_free_energy():
 def main():
     wrapping(topology, trajectory, trjtype, "wrapped_traj")
     split_complex(topology, "wrapped_traj.dcd", ligname)
-    namd_mmgbsa(complex_only.prmtop, complex_only.rst7, complex_only.dcd)
-    namd_mmgbsa(receptor_only.prmtop, receptor_only.rst7, receptor_only.dcd)
-    namd_mmgbsa(ligand_only.prmtop, ligand_only.rst7, ligand_only.dcd)
+    namd_mmgbsa("complex_only.prmtop", "complex_only.rst7", "complex_only.dcd")
+    namd_mmgbsa("receptor_only.prmtop", "receptor_only.rst7", "receptor_only.dcd")
+    namd_mmgbsa("ligand_only.prmtop", "ligand_only.rst7", "ligand_only.dcd")
     binding_free_energy()
 
     return 
